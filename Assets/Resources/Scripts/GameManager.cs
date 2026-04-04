@@ -87,20 +87,36 @@ public class GameManager : MonoBehaviour
         for (int i = 0; i < fallingBits.Length; i++)
         {
             RectTransform r = fallingBits[i].GetComponent<RectTransform>();
+            r.anchorMin        = new Vector2(0f, 0.5f);
+            r.anchorMax        = new Vector2(0f, 0.5f);
+            r.pivot            = new Vector2(0f, 0.5f);
             r.sizeDelta        = new Vector2(bitSize, bitSize);
-            r.anchoredPosition = new Vector2(i * (bitSize + bitSpacing), 0);
+            r.anchoredPosition = new Vector2(i * (bitSize + bitSpacing), 0f);
         }
 
+        fallingBlock.anchorMin = new Vector2(0.5f, 0.5f);
+        fallingBlock.anchorMax = new Vector2(0.5f, 0.5f);
+        fallingBlock.pivot     = new Vector2(0f, 0.5f);
+        
         // Size and position each base bit
         RectTransform baseRect = baseBits[0].transform.parent.GetComponent<RectTransform>();
         float totalWidth = baseBits.Length * bitSize + (baseBits.Length - 1) * bitSpacing;
         baseRect.sizeDelta = new Vector2(totalWidth, bitSize);
 
+        // Anchor BaseRow to center, then position bits from its local left edge
+        baseRect.anchorMin = new Vector2(0.5f, 0.5f);
+        baseRect.anchorMax = new Vector2(0.5f, 0.5f);
+        baseRect.pivot     = new Vector2(0f, 0.5f); // pivot at LEFT edge
+        baseRect.anchoredPosition = new Vector2(-totalWidth / 2f, baseRect.anchoredPosition.y);
+
         for (int i = 0; i < baseBits.Length; i++)
         {
             RectTransform r = baseBits[i].GetComponent<RectTransform>();
+            r.anchorMin        = new Vector2(0f, 0.5f);
+            r.anchorMax        = new Vector2(0f, 0.5f);
+            r.pivot            = new Vector2(0f, 0.5f);
             r.sizeDelta        = new Vector2(bitSize, bitSize);
-            r.anchoredPosition = new Vector2(i * (bitSize + bitSpacing), 0);
+            r.anchoredPosition = new Vector2(i * (bitSize + bitSpacing), 0f);
         }
 
         // Bounds in PlayArea local space
@@ -291,7 +307,6 @@ private bool _snapQueued = false;
  
     IEnumerator WinFlash()
     {
-        // Flash base row 3 times
         for (int flash = 0; flash < 3; flash++)
         {
             foreach (var img in baseBits) img.color = Color.yellow;
@@ -299,16 +314,21 @@ private bool _snapQueued = false;
             RefreshBaseVisuals();
             yield return new WaitForSeconds(0.12f);
         }
- 
-        // Clear the base register
-        System.Array.Clear(_base, 0, _base.Length);
+
+        // Generate a new random base that isn't all 1s (that would instant-win again)
+        do {
+            for (int i = 0; i < _base.Length; i++)
+                _base[i] = Random.Range(0, 2);
+        }
+        while (System.Array.TrueForAll(_base, b => b == 1));
+
         RefreshBaseVisuals();
- 
+
         yield return new WaitForSeconds(0.2f);
- 
+
         SpawnBlock();
     }
- 
+
     // ── Debug helpers (visible in Inspector via context menu) ─────────
  
     [ContextMenu("Debug: Set Base to 11110000")]
