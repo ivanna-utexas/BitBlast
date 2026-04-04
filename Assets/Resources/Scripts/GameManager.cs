@@ -51,8 +51,7 @@ public Sprite baseBitOff;     // sprite for base row 0-bit
 
 
     public enum BitOperation { XOR, AND, NAND }
-    private BitOperation _currentOperation;
-
+    private BitOperation _currentOperation = (BitOperation)(-1); // no operation yet
 
  
     // ── internal state ──────────────────────────────────────────────
@@ -180,11 +179,13 @@ void Start()
         _playAreaTop    =  playHeight / 2f;
         _playAreaBottom = -playHeight / 2f;
     } 
+
     float GetBaseRowLeftEdge()
     {
         RectTransform baseRect = baseBits[0].transform.parent.GetComponent<RectTransform>();
         return baseRect.anchoredPosition.x - baseRect.rect.width * baseRect.pivot.x;
     }
+
     /// Randomise the 4-bit pattern and reset the block to the top.
 [Header("Block Size")]
 public int maxBlockBits = 4; // set to 4 in Inspector; range 1–4
@@ -230,10 +231,17 @@ public int maxBlockBits = 4; // set to 4 in Inspector; range 1–4
     }
 
     void PickRandomOperation()
-    {
-        _currentOperation = (BitOperation)Random.Range(0, 3);
-        UpdateOperationVisuals();
+{
+    BitOperation next;
+    do {
+        next = (BitOperation)Random.Range(0, 3);
     }
+    while (next == _currentOperation);
+
+    _currentOperation = next;
+    UpdateOperationVisuals();
+}
+
 
     void UpdateOperationVisuals()
 {
