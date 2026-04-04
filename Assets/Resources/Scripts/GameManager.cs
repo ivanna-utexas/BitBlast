@@ -30,6 +30,7 @@ public class GameManager : MonoBehaviour
     [Header("Scoring & Levels")]
     public TextMeshProUGUI levelText;
     public int   pointsPerBit    = 100;
+    public int pointsPerTouch = 25;
     public float speedIncreasePerLevel = 20f;  // added to fallSpeed each level
     public float baseFallSpeed   = 120f;       // starting speed (match your fallSpeed value)
 
@@ -295,24 +296,24 @@ private bool _snapQueued = false;
 
         int startIndex = XPositionToBaseIndex(_blockX);
 
-        int bitsGained = 0;
-        int bitsLost   = 0;
+
+        int gained = 0, lost = 0;
 
         for (int i = 0; i < _falling.Length; i++)
         {
-            if (_falling[i] == 0) continue; // only 1-bits in falling block do anything
+            if (_falling[i] == 0) continue;
 
             int baseIdx = startIndex + i;
             if (baseIdx < 0 || baseIdx >= _base.Length) continue;
 
-            if (_base[baseIdx] == 0) bitsGained++;  // 0 XOR 1 = 1, turned white
-            else                     bitsLost++;     // 1 XOR 1 = 0, turned black
+            if (_base[baseIdx] == 0) gained++;
+            else                     lost++;
 
             _base[baseIdx] ^= _falling[i];
         }
 
-        // Score: +100 per bit turned white, -100 per bit turned black
-        int delta = (bitsGained - bitsLost) * pointsPerBit;
+        int delta = (gained * (pointsPerBit + pointsPerTouch))
+                - (lost   * (pointsPerBit - pointsPerTouch));
         Debug.Log($"Delta:    {string.Join("", delta)}");
         _score = Mathf.Max(0, _score + delta);  // floor at 0
         UpdateScore();
