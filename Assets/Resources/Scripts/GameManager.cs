@@ -294,6 +294,7 @@ private bool _snapQueued = false;
 
         // Score: +100 per bit turned white, -100 per bit turned black
         int delta = (bitsGained - bitsLost) * pointsPerBit;
+        Debug.Log($"Delta:    {string.Join("", delta)}");
         _score = Mathf.Max(0, _score + delta);  // floor at 0
         UpdateScore();
 
