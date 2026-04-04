@@ -40,6 +40,7 @@ public Sprite baseBitOn;      // sprite for base row 1-bit
 public Sprite baseBitOff;     // sprite for base row 0-bit
 
     private int _level = 1;
+    private bool _debugOverride = false;
 
  
     // ── internal state ──────────────────────────────────────────────
@@ -62,14 +63,25 @@ public Sprite baseBitOff;     // sprite for base row 0-bit
  
     // ── Unity lifecycle ──────────────────────────────────────────────
  
-    void Start()
+void Start()
+{
+    CalculateBounds();
+
+    if (_debugOverride)
     {
-        CalculateBounds();
+        _blockY = _playAreaTop + bitSize;
+        _falling_active = true;
+        ApplyPosition();
+    }
+    else
+    {
         RandomiseBase();
         SpawnBlock();
         UpdateLevelText();
     }
- 
+}
+
+
     void Update()
     {
         if (!_falling_active || _locking) return;
@@ -204,6 +216,15 @@ private bool _snapQueued = false;
 
     void HandleInput()
     {
+        bool dropPressed = Keyboard.current.downArrowKey.wasPressedThisFrame || Keyboard.current.sKey.wasPressedThisFrame;
+
+        if (dropPressed)
+        {
+            _blockY = _playAreaBottom + bitSize;
+            ApplyPosition();
+            StartCoroutine(LockAndXOR());
+            return;
+        }
         _snapTimer -= Time.deltaTime;
 
         bool leftPressed  = Keyboard.current.leftArrowKey.wasPressedThisFrame  || Keyboard.current.aKey.wasPressedThisFrame;
@@ -317,15 +338,20 @@ private bool _snapQueued = false;
  
     void RefreshFallingVisuals()
     {
-        for (int i = 0; i < fallingBits.Length; i++)
+        for (int i = 0; i < fallingBits.Length; i++){
+            fallingBits[i].color  = Color.white;
             fallingBits[i].sprite = _falling[i] == 1 ? fallingBitOn : fallingBitOff;
+        }
         
     }
 
     void RefreshBaseVisuals()
     {
-        for (int i = 0; i < baseBits.Length; i++)
+        for (int i = 0; i < baseBits.Length; i++){
+            baseBits[i].color  = Color.white;
             baseBits[i].sprite = _base[i] == 1 ? baseBitOn : baseBitOff;
+        }
+
     } 
    void UpdateScore()
     {
@@ -347,7 +373,7 @@ private bool _snapQueued = false;
         {
             foreach (var img in baseBits) img.color = Color.yellow;
             yield return new WaitForSeconds(0.12f);
-            RefreshBaseVisuals();
+            foreach (var img in baseBits) img.color = Color.white;  // ← add this
             yield return new WaitForSeconds(0.12f);
         }
 
@@ -367,14 +393,39 @@ private bool _snapQueued = false;
 
     // ── Debug helpers (visible in Inspector via context menu) ─────────
  
-    [ContextMenu("Debug: Set Base to 11110000")]
-    void DebugSetBase()
-    {
-        int[] test = { 1,1,1,1,0,0,0,0 };
-        System.Array.Copy(test, _base, 8);
-        RefreshBaseVisuals();
-    }
- 
+[ContextMenu("Debug: Force Near Win")]
+void DebugForceNearWin()
+{
+    _debugOverride = true;
+
+    int[] test = { 1,1,1,1,1,1,1,0 };
+    System.Array.Copy(test, _base, 8);
+    RefreshBaseVisuals();
+
+    for (int i = 0; i < fallingBits.Length; i++)
+        fallingBits[i].gameObject.SetActive(i == 0);
+    _falling[0] = 1;
+    for (int i = 1; i < _falling.Length; i++)
+        _falling[i] = 0;
+
+    RefreshFallingVisuals();
+
+    float cellWidth = bitSize + bitSpacing;
+    fallingBlock.sizeDelta = new Vector2(bitSize, bitSize);
+
+    _minX = GetBaseRowLeftEdge();
+    _maxX = GetBaseRowLeftEdge() + (baseBits.Length - 1) * cellWidth;
+
+    _blockX = GetBaseRowLeftEdge() + 7 * cellWidth;
+    _blockY = _playAreaTop + bitSize;
+
+    _falling_active = true;
+    _locking        = false;
+
+    ApplyPosition();
+}
+
+
     [ContextMenu("Debug: Print State")]
     void DebugPrintState()
     {
