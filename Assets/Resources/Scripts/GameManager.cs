@@ -26,6 +26,15 @@ public class GameManager : MonoBehaviour
  
     [Header("Timing")]
     public float lockDelay   = 0.15f; // seconds before XOR fires after landing
+
+    [Header("Scoring & Levels")]
+    public TextMeshProUGUI levelText;
+    public int   pointsPerBit    = 100;
+    public float speedIncreasePerLevel = 20f;  // added to fallSpeed each level
+    public float baseFallSpeed   = 120f;       // starting speed (match your fallSpeed value)
+
+    private int _level = 1;
+
  
     // ── internal state ──────────────────────────────────────────────
     private int[] _base     = new int[8];   // 8-bit base register
@@ -52,6 +61,7 @@ public class GameManager : MonoBehaviour
         CalculateBounds();
         RandomiseBase();
         SpawnBlock();
+        UpdateLevelText();
     }
  
     void Update()
@@ -97,7 +107,7 @@ public class GameManager : MonoBehaviour
         fallingBlock.anchorMin = new Vector2(0.5f, 0.5f);
         fallingBlock.anchorMax = new Vector2(0.5f, 0.5f);
         fallingBlock.pivot     = new Vector2(0f, 0.5f);
-        
+
         // Size and position each base bit
         RectTransform baseRect = baseBits[0].transform.parent.GetComponent<RectTransform>();
         float totalWidth = baseBits.Length * bitSize + (baseBits.Length - 1) * bitSpacing;
@@ -234,26 +244,39 @@ private bool _snapQueued = false;
     {
         _locking        = true;
         _falling_active = false;
- 
+
         yield return new WaitForSeconds(lockDelay);
- 
-        // Figure out which base bits align with the falling block.
-        // Map block's left-edge X to a base bit index.
+
         int startIndex = XPositionToBaseIndex(_blockX);
- 
+
+        int bitsGained = 0;
+        int bitsLost   = 0;
+
         for (int i = 0; i < _falling.Length; i++)
         {
+            if (_falling[i] == 0) continue; // only 1-bits in falling block do anything
+
             int baseIdx = startIndex + i;
-            if (baseIdx >= 0 && baseIdx < _base.Length)
-                _base[baseIdx] ^= _falling[i];
+            if (baseIdx < 0 || baseIdx >= _base.Length) continue;
+
+            if (_base[baseIdx] == 0) bitsGained++;  // 0 XOR 1 = 1, turned white
+            else                     bitsLost++;     // 1 XOR 1 = 0, turned black
+
+            _base[baseIdx] ^= _falling[i];
         }
- 
+
+        // Score: +100 per bit turned white, -100 per bit turned black
+        int delta = (bitsGained - bitsLost) * pointsPerBit;
+        _score = Mathf.Max(0, _score + delta);  // floor at 0
+        UpdateScore();
+
         RefreshBaseVisuals();
- 
+
         if (CheckWin())
         {
-            _score++;
-            UpdateScore();
+            _level++;
+            fallSpeed = baseFallSpeed + (_level - 1) * speedIncreasePerLevel;
+            UpdateLevelText();
             StartCoroutine(WinFlash());
         }
         else
@@ -261,7 +284,8 @@ private bool _snapQueued = false;
             SpawnBlock();
         }
     }
- 
+
+
     /// Convert a local-space X position to the nearest base bit index (0–7).
     int XPositionToBaseIndex(float localX)
     {
@@ -297,10 +321,16 @@ private bool _snapQueued = false;
             baseBits[i].color = _base[i] == 1 ? bitOnColor : bitOffColor;
     }
  
-    void UpdateScore()
+   void UpdateScore()
     {
         if (scoreText != null)
             scoreText.text = $"Score: {_score}";
+    }
+
+    void UpdateLevelText()
+    {
+        if (levelText != null)
+            levelText.text = $"Level: {_level}";
     }
  
     // ── Win sequence ─────────────────────────────────────────────────
