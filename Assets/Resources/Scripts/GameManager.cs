@@ -33,6 +33,12 @@ public class GameManager : MonoBehaviour
     public float speedIncreasePerLevel = 20f;  // added to fallSpeed each level
     public float baseFallSpeed   = 120f;       // starting speed (match your fallSpeed value)
 
+    [Header("Sprites")]
+public Sprite fallingBitOn;   // sprite for falling block 1-bit
+public Sprite fallingBitOff;  // sprite for falling block 0-bit
+public Sprite baseBitOn;      // sprite for base row 1-bit
+public Sprite baseBitOff;     // sprite for base row 0-bit
+
     private int _level = 1;
 
  
@@ -312,15 +318,15 @@ private bool _snapQueued = false;
     void RefreshFallingVisuals()
     {
         for (int i = 0; i < fallingBits.Length; i++)
-            fallingBits[i].color = _falling[i] == 1 ? bitOnColor : bitOffColor;
+            fallingBits[i].sprite = _falling[i] == 1 ? fallingBitOn : fallingBitOff;
+        
     }
- 
+
     void RefreshBaseVisuals()
     {
         for (int i = 0; i < baseBits.Length; i++)
-            baseBits[i].color = _base[i] == 1 ? bitOnColor : bitOffColor;
-    }
- 
+            baseBits[i].sprite = _base[i] == 1 ? baseBitOn : baseBitOff;
+    } 
    void UpdateScore()
     {
         if (scoreText != null)
@@ -354,7 +360,7 @@ private bool _snapQueued = false;
 
         RefreshBaseVisuals();
 
-        yield return new WaitForSeconds(0.2f);
+        yield return new WaitForSeconds(0.5f);
 
         SpawnBlock();
     }
