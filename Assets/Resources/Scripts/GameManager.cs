@@ -166,8 +166,7 @@ void Start()
 [Header("Block Size")]
 public int maxBlockBits = 4; // set to 4 in Inspector; range 1–4
 
-    void SpawnBlock()
-    {
+    void SpawnBlock(){
         // Pick a random width 1–maxBlockBits
         int blockSize = Random.Range(1, maxBlockBits + 1);
 
@@ -220,9 +219,7 @@ private bool _snapQueued = false;
 
         if (dropPressed)
         {
-            _blockY = _playAreaBottom + bitSize;
-            ApplyPosition();
-            StartCoroutine(LockAndXOR());
+            StartCoroutine(DropAndLock());
             return;
         }
         _snapTimer -= Time.deltaTime;
@@ -243,6 +240,28 @@ private bool _snapQueued = false;
             _snapTimer = snapCooldown;
         }
     }
+
+
+    // Add this new method:
+    IEnumerator DropAndLock()
+    {
+        _falling_active = false;
+        _locking        = true;  // ← add this
+        _blockX = SnapToGrid(_blockX);  // ← snap before locking
+        _blockY = _playAreaBottom + bitSize;
+        ApplyPosition();
+        yield return new WaitForSeconds(0.2f);
+        StartCoroutine(LockAndXOR());
+    }   
+
+    float SnapToGrid(float x)
+    {
+        float cellWidth = bitSize + bitSpacing;
+        float relative  = x - GetBaseRowLeftEdge();
+        int   cell      = Mathf.RoundToInt(relative / cellWidth);
+        return GetBaseRowLeftEdge() + cell * cellWidth;
+    }
+
 
     void ApplyGravity()
     {
