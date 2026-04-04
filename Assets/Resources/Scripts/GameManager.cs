@@ -16,6 +16,7 @@ public class GameManager : MonoBehaviour
     public Image operationImage;   // the XOR banner image on the key
      public Image truthTableImage;   // the XOR banner image on the key
      public Image goalImage; 
+     public GameObject startScreenBGDark;
 
  
     [Header("Colors")]
@@ -96,14 +97,23 @@ void Start()
 
 
     void Update()
+{
+    if (startScreenBGDark != null && startScreenBGDark.activeSelf)
     {
-        if (!_falling_active || _locking) return;
- 
-        HandleInput();
-        ApplyGravity();
-        CheckLanding();
-        ApplyPosition();
+        Time.timeScale = 0f;
+        return;
+    } else{
+        Time.timeScale = 1f;
     }
+
+    
+
+    if (!_falling_active || _locking) return;
+    HandleInput();
+    ApplyGravity();
+    CheckLanding();
+    ApplyPosition();
+}
  
     // ── Setup ────────────────────────────────────────────────────────
     void RandomiseBase()
