@@ -50,6 +50,7 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         CalculateBounds();
+        RandomiseBase();
         SpawnBlock();
     }
  
@@ -64,60 +65,132 @@ public class GameManager : MonoBehaviour
     }
  
     // ── Setup ────────────────────────────────────────────────────────
+    void RandomiseBase()
+    {
+        for (int i = 0; i < _base.Length; i++)
+            _base[i] = Random.Range(0, 2);
+
+        // Make sure it isn't already all 1s (instant win on load)
+        while (System.Array.TrueForAll(_base, b => b == 1))
+            _base[Random.Range(0, _base.Length)] = 0;
+
+        RefreshBaseVisuals();
+    }
  
     /// Work out the local-space Y limits inside the play area.
     void CalculateBounds()
     {
-        float h = playArea.rect.height;
-        float w = playArea.rect.width;
- 
-        // PlayArea pivot is assumed 0.5,0.5 (center).
-        // Local Y ranges from -h/2 (bottom) to +h/2 (top).
-        _playAreaTop    =  h / 2f;
-        _playAreaBottom = -h / 2f;
- 
+        // Size and position each falling bit
         float blockWidth = fallingBits.Length * bitSize + (fallingBits.Length - 1) * bitSpacing;
- 
-        _minX = -w / 2f;
-        _maxX =  w / 2f - blockWidth;
+        fallingBlock.sizeDelta = new Vector2(blockWidth, bitSize);
+
+        for (int i = 0; i < fallingBits.Length; i++)
+        {
+            RectTransform r = fallingBits[i].GetComponent<RectTransform>();
+            r.sizeDelta        = new Vector2(bitSize, bitSize);
+            r.anchoredPosition = new Vector2(i * (bitSize + bitSpacing), 0);
+        }
+
+        // Size and position each base bit
+        RectTransform baseRect = baseBits[0].transform.parent.GetComponent<RectTransform>();
+        float totalWidth = baseBits.Length * bitSize + (baseBits.Length - 1) * bitSpacing;
+        baseRect.sizeDelta = new Vector2(totalWidth, bitSize);
+
+        for (int i = 0; i < baseBits.Length; i++)
+        {
+            RectTransform r = baseBits[i].GetComponent<RectTransform>();
+            r.sizeDelta        = new Vector2(bitSize, bitSize);
+            r.anchoredPosition = new Vector2(i * (bitSize + bitSpacing), 0);
+        }
+
+        // Bounds in PlayArea local space
+        // anchoredPosition moves the block's pivot, so clamp pivot X directly
+        float playWidth = playArea.rect.width;
+        _minX = GetBaseRowLeftEdge();
+        _maxX = GetBaseRowLeftEdge() + (baseBits.Length - fallingBits.Length) * (bitSize + bitSpacing);
+
+        float playHeight = playArea.rect.height;
+        _playAreaTop    =  playHeight / 2f;
+        _playAreaBottom = -playHeight / 2f;
+    } 
+    float GetBaseRowLeftEdge()
+    {
+        RectTransform baseRect = baseBits[0].transform.parent.GetComponent<RectTransform>();
+        return baseRect.anchoredPosition.x - baseRect.rect.width * baseRect.pivot.x;
     }
- 
     /// Randomise the 4-bit pattern and reset the block to the top.
+[Header("Block Size")]
+public int maxBlockBits = 4; // set to 4 in Inspector; range 1–4
+
     void SpawnBlock()
     {
-        // Random 4-bit pattern — at least one bit is 1 so it's never a no-op
-        do
-        {
-            for (int i = 0; i < _falling.Length; i++)
+        // Pick a random width 1–maxBlockBits
+        int blockSize = Random.Range(1, maxBlockBits + 1);
+
+        // Resize fallingBits array usage — hide unused bits
+        for (int i = 0; i < fallingBits.Length; i++)
+            fallingBits[i].gameObject.SetActive(i < blockSize);
+
+        // Random pattern, at least one 1
+        do {
+            for (int i = 0; i < blockSize; i++)
                 _falling[i] = Random.Range(0, 2);
         }
-        while (System.Array.TrueForAll(_falling, b => b == 0));
- 
+        while (System.Array.TrueForAll(_falling, b => b == 0)); // retry if all zeros
+
+        // Zero out unused slots
+        for (int i = blockSize; i < _falling.Length; i++)
+            _falling[i] = 0;
+
         RefreshFallingVisuals();
- 
-        // Start just above the visible area
-        _blockY = _playAreaTop + bitSize;
+
+        // Resize the FallingBlock panel to match actual bit count
+        float newWidth = blockSize * bitSize + (blockSize - 1) * bitSpacing;
+        fallingBlock.sizeDelta = new Vector2(newWidth, bitSize);
+
+        // Recalculate horizontal bounds for new width
+        float playWidth = playArea.rect.width;
+        _minX = GetBaseRowLeftEdge();
+        _maxX = GetBaseRowLeftEdge() + (baseBits.Length - blockSize) * (bitSize + bitSpacing);
+
+        // Snap starting X to grid
         _blockX = _minX;
- 
+        _blockY = _playAreaTop + bitSize;
+
         _falling_active = true;
         _locking        = false;
- 
+
         ApplyPosition();
     }
- 
+
     // ── Input & movement ─────────────────────────────────────────────
  
+[Header("Snap Movement")]
+public float snapCooldown = 0.12f; // seconds between snaps (hold key repeat rate)
+private float _snapTimer = 0f;
+private bool _snapQueued = false;
+
     void HandleInput()
     {
-        float move = 0f;
+        _snapTimer -= Time.deltaTime;
 
-        if (Keyboard.current.leftArrowKey.isPressed  || Keyboard.current.aKey.isPressed) move = -1f;
-        if (Keyboard.current.rightArrowKey.isPressed || Keyboard.current.dKey.isPressed) move =  1f;
+        bool leftPressed  = Keyboard.current.leftArrowKey.wasPressedThisFrame  || Keyboard.current.aKey.wasPressedThisFrame;
+        bool rightPressed = Keyboard.current.rightArrowKey.wasPressedThisFrame || Keyboard.current.dKey.wasPressedThisFrame;
+        bool leftHeld     = Keyboard.current.leftArrowKey.isPressed  || Keyboard.current.aKey.isPressed;
+        bool rightHeld    = Keyboard.current.rightArrowKey.isPressed || Keyboard.current.dKey.isPressed;
 
-        _blockX += move * inputSpeed * Time.deltaTime;
-        _blockX  = Mathf.Clamp(_blockX, _minX, _maxX);
+        int dir = 0;
+        if (leftPressed  || (leftHeld  && _snapTimer <= 0f)) dir = -1;
+        if (rightPressed || (rightHeld && _snapTimer <= 0f)) dir =  1;
+
+        if (dir != 0)
+        {
+            float step = bitSize + bitSpacing;
+            _blockX = Mathf.Clamp(_blockX + dir * step, _minX, _maxX);
+            _snapTimer = snapCooldown;
+        }
     }
- 
+
     void ApplyGravity()
     {
         _blockY -= fallSpeed * Time.deltaTime;
@@ -176,15 +249,17 @@ public class GameManager : MonoBehaviour
     /// Convert a local-space X position to the nearest base bit index (0–7).
     int XPositionToBaseIndex(float localX)
     {
-        float playWidth = playArea.rect.width;
-        float leftEdge  = -playWidth / 2f;
         float cellWidth = bitSize + bitSpacing;
- 
-        // Which cell does the left edge of the block fall closest to?
-        int idx = Mathf.RoundToInt((localX - leftEdge) / cellWidth);
-        return Mathf.Clamp(idx, 0, _base.Length - _falling.Length);
+        float relativeX = localX - GetBaseRowLeftEdge();
+        int idx = Mathf.RoundToInt(relativeX / cellWidth);
+
+        int activeSize = 0;
+        foreach (var b in fallingBits) if (b.gameObject.activeSelf) activeSize++;
+
+        return Mathf.Clamp(idx, 0, _base.Length - activeSize);
     }
- 
+
+
     bool CheckWin()
     {
         foreach (int b in _base)
