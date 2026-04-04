@@ -1,0 +1,1287 @@
+fileFormatVersion: 2
+guid: 28700d9ae7d664a7a978407af071f74c
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 9083896256059181448
+    second: BitBlast (3)_0
+  - first:
+      213: -234299207879748173
+    second: BitBlast (3)_1
+  - first:
+      213: 3836105902932203526
+    second: BitBlast (3)_2
+  - first:
+      213: 5864032742679208673
+    second: BitBlast (3)_3
+  - first:
+      213: -3554938520033322252
+    second: BitBlast (3)_4
+  - first:
+      213: 8999942866157935664
+    second: BitBlast (3)_5
+  - first:
+      213: -4941437521313615948
+    second: BitBlast (3)_6
+  - first:
+      213: 6923732178443445485
+    second: BitBlast (3)_7
+  - first:
+      213: -5946776034077196965
+    second: BitBlast (3)_8
+  - first:
+      213: 8819111933128878007
+    second: BitBlast (3)_9
+  - first:
+      213: 1959471091467174021
+    second: BitBlast (3)_10
+  - first:
+      213: 1188060874503428023
+    second: BitBlast (3)_11
+  - first:
+      213: -7274946536040973848
+    second: BitBlast (3)_12
+  - first:
+      213: 8019386208967990556
+    second: BitBlast (3)_13
+  - first:
+      213: 7009350039762231254
+    second: BitBlast (3)_14
+  - first:
+      213: -2524500071052385732
+    second: BitBlast (3)_15
+  - first:
+      213: -5624849164019891264
+    second: BitBlast (3)_16
+  - first:
+      213: 4451542685857756331
+    second: BitBlast (3)_17
+  - first:
+      213: -1700401697042160802
+    second: BitBlast (3)_18
+  - first:
+      213: 5995017313170755988
+    second: BitBlast (3)_19
+  - first:
+      213: -8197163555375218631
+    second: BitBlast (3)_20
+  - first:
+      213: -5640149286013768617
+    second: BitBlast (3)_21
+  - first:
+      213: 4186610373822459752
+    second: BitBlast (3)_22
+  - first:
+      213: 4702652236430804160
+    second: BitBlast (3)_23
+  - first:
+      213: 4275352621452338171
+    second: BitBlast (3)_24
+  - first:
+      213: 7876679557544262828
+    second: BitBlast (3)_25
+  - first:
+      213: -8532177553266603373
+    second: BitBlast (3)_26
+  - first:
+      213: -4061398125612589406
+    second: BitBlast (3)_27
+  - first:
+      213: -4240784791718121864
+    second: BitBlast (3)_28
+  - first:
+      213: -2624616557287969574
+    second: BitBlast (3)_29
+  - first:
+      213: 7544474139893008354
+    second: BitBlast (3)_30
+  - first:
+      213: -3316467093128857249
+    second: BitBlast (3)_31
+  - first:
+      213: -6219738703314998704
+    second: BitBlast (3)_32
+  - first:
+      213: -589648345863209300
+    second: BitBlast (3)_33
+  - first:
+      213: -3068951313879378711
+    second: BitBlast (3)_34
+  - first:
+      213: -5617681181937582877
+    second: BitBlast (3)_35
+  - first:
+      213: -1453767275118826036
+    second: BitBlast (3)_36
+  - first:
+      213: -4142756607289111333
+    second: BitBlast (3)_37
+  - first:
+      213: 6126434681610058258
+    second: BitBlast (3)_38
+  - first:
+      213: -4920412540750900581
+    second: BitBlast (3)_39
+  - first:
+      213: -6664298357529333002
+    second: BitBlast (3)_40
+  - first:
+      213: -3092941231527606767
+    second: BitBlast (3)_41
+  - first:
+      213: 5983529959175336315
+    second: BitBlast (3)_42
+  - first:
+      213: 4390213882813477429
+    second: BitBlast (3)_43
+  - first:
+      213: -1840703863772922931
+    second: BitBlast (3)_44
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: BitBlast (3)_0
+      rect:
+        serializedVersion: 2
+        x: 152
+        y: 1271
+        width: 51
+        height: 76
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 88988ee248b701e70800000000000000
+      internalID: 9083896256059181448
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BitBlast (3)_1
+      rect:
+        serializedVersion: 2
+        x: 212
+        y: 1271
+        width: 50
+        height: 59
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3b51c2f9c1a9fbcf0800000000000000
+      internalID: -234299207879748173
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BitBlast (3)_2
+      rect:
+        serializedVersion: 2
+        x: 271
+        y: 1271
+        width: 50
+        height: 59
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6089d018ef59c3530800000000000000
+      internalID: 3836105902932203526
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BitBlast (3)_3
+      rect:
+        serializedVersion: 2
+        x: 329
+        y: 1272
+        width: 55
+        height: 75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1e267a2e5ba316150800000000000000
+      internalID: 5864032742679208673
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BitBlast (3)_4
+      rect:
+        serializedVersion: 2
+        x: 180
+        y: 1061
+        width: 154
+        height: 149
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4fa9f0b30425aaec0800000000000000
+      internalID: -3554938520033322252
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BitBlast (3)_5
+      rect:
+        serializedVersion: 2
+        x: 356
+        y: 1061
+        width: 154
+        height: 149
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 03c97206a5836ec70800000000000000
+      internalID: 8999942866157935664
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BitBlast (3)_6
+      rect:
+        serializedVersion: 2
+        x: 532
+        y: 1061
+        width: 154
+        height: 149
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4bfa05651cc7c6bb0800000000000000
+      internalID: -4941437521313615948
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BitBlast (3)_7
+      rect:
+        serializedVersion: 2
+        x: 708
+        y: 1061
+        width: 154
+        height: 149
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: de420189bb9061060800000000000000
+      internalID: 6923732178443445485
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BitBlast (3)_8
+      rect:
+        serializedVersion: 2
+        x: 884
+        y: 1061
+        width: 154
+        height: 149
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b5db50254bec87da0800000000000000
+      internalID: -5946776034077196965
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BitBlast (3)_9
+      rect:
+        serializedVersion: 2
+        x: 1060
+        y: 1061
+        width: 153
+        height: 149
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7b72e88d397c36a70800000000000000
+      internalID: 8819111933128878007
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BitBlast (3)_10
+      rect:
+        serializedVersion: 2
+        x: 1235
+        y: 1061
+        width: 154
+        height: 149
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5804c827390713b10800000000000000
+      internalID: 1959471091467174021
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BitBlast (3)_11
+      rect:
+        serializedVersion: 2
+        x: 1411
+        y: 1061
+        width: 154
+        height: 149
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7b7115c1217dc7010800000000000000
+      internalID: 1188060874503428023
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BitBlast (3)_12
+      rect:
+        serializedVersion: 2
+        x: 175
+        y: 946
+        width: 33
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8e9b1577ba23a0b90800000000000000
+      internalID: -7274946536040973848
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BitBlast (3)_13
+      rect:
+        serializedVersion: 2
+        x: 213
+        y: 947
+        width: 28
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c1d143eb4459a4f60800000000000000
+      internalID: 8019386208967990556
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BitBlast (3)_14
+      rect:
+        serializedVersion: 2
+        x: 429
+        y: 947
+        width: 28
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6dfd56a59b6364160800000000000000
+      internalID: 7009350039762231254
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BitBlast (3)_15
+      rect:
+        serializedVersion: 2
+        x: 465
+        y: 947
+        width: 28
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c32697d8f8c27fcd0800000000000000
+      internalID: -2524500071052385732
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BitBlast (3)_16
+      rect:
+        serializedVersion: 2
+        x: 534
+        y: 946
+        width: 33
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0c3017fac7580f1b0800000000000000
+      internalID: -5624849164019891264
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BitBlast (3)_17
+      rect:
+        serializedVersion: 2
+        x: 606
+        y: 946
+        width: 32
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ba43a0dcc7e07cd30800000000000000
+      internalID: 4451542685857756331
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BitBlast (3)_18
+      rect:
+        serializedVersion: 2
+        x: 657
+        y: 985
+        width: 12
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e53a4586aa5f668e0800000000000000
+      internalID: -1700401697042160802
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BitBlast (3)_19
+      rect:
+        serializedVersion: 2
+        x: 680
+        y: 947
+        width: 32
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4911cddbb74923350800000000000000
+      internalID: 5995017313170755988
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BitBlast (3)_20
+      rect:
+        serializedVersion: 2
+        x: 788
+        y: 947
+        width: 32
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 93005144d23dd3e80800000000000000
+      internalID: -8197163555375218631
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BitBlast (3)_21
+      rect:
+        serializedVersion: 2
+        x: 933
+        y: 947
+        width: 28
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 75ce9fe6b1a2ab1b0800000000000000
+      internalID: -5640149286013768617
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BitBlast (3)_22
+      rect:
+        serializedVersion: 2
+        x: 1112
+        y: 947
+        width: 32
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 86f27a014f3d91a30800000000000000
+      internalID: 4186610373822459752
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BitBlast (3)_23
+      rect:
+        serializedVersion: 2
+        x: 1145
+        y: 947
+        width: 32
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0c487a61b4d234140800000000000000
+      internalID: 4702652236430804160
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BitBlast (3)_24
+      rect:
+        serializedVersion: 2
+        x: 1377
+        y: 985
+        width: 12
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bf3a333be8a155b30800000000000000
+      internalID: 4275352621452338171
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BitBlast (3)_25
+      rect:
+        serializedVersion: 2
+        x: 1436
+        y: 947
+        width: 32
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cacb10d33569f4d60800000000000000
+      internalID: 7876679557544262828
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BitBlast (3)_26
+      rect:
+        serializedVersion: 2
+        x: 247
+        y: 946
+        width: 31
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 39a8bf088bd979980800000000000000
+      internalID: -8532177553266603373
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BitBlast (3)_27
+      rect:
+        serializedVersion: 2
+        x: 283
+        y: 946
+        width: 31
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2ae9c674ce303a7c0800000000000000
+      internalID: -4061398125612589406
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BitBlast (3)_28
+      rect:
+        serializedVersion: 2
+        x: 319
+        y: 947
+        width: 32
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 87e23c853b4b525c0800000000000000
+      internalID: -4240784791718121864
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BitBlast (3)_29
+      rect:
+        serializedVersion: 2
+        x: 391
+        y: 946
+        width: 31
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: adced3f952d739bd0800000000000000
+      internalID: -2624616557287969574
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BitBlast (3)_30
+      rect:
+        serializedVersion: 2
+        x: 642
+        y: 947
+        width: 31
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2e78175024b53b860800000000000000
+      internalID: 7544474139893008354
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BitBlast (3)_31
+      rect:
+        serializedVersion: 2
+        x: 714
+        y: 946
+        width: 32
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f5938cc00ca89f1d0800000000000000
+      internalID: -3316467093128857249
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BitBlast (3)_32
+      rect:
+        serializedVersion: 2
+        x: 823
+        y: 946
+        width: 31
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 05a29295a9c0fa9a0800000000000000
+      internalID: -6219738703314998704
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BitBlast (3)_33
+      rect:
+        serializedVersion: 2
+        x: 895
+        y: 946
+        width: 31
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cae3d6a14f521d7f0800000000000000
+      internalID: -589648345863209300
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BitBlast (3)_34
+      rect:
+        serializedVersion: 2
+        x: 967
+        y: 946
+        width: 31
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9e4504f3a05e865d0800000000000000
+      internalID: -3068951313879378711
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BitBlast (3)_35
+      rect:
+        serializedVersion: 2
+        x: 1002
+        y: 946
+        width: 32
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3ecb6319abcf902b0800000000000000
+      internalID: -5617681181937582877
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BitBlast (3)_36
+      rect:
+        serializedVersion: 2
+        x: 1039
+        y: 947
+        width: 32
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ccd647c9d5e23dbe0800000000000000
+      internalID: -1453767275118826036
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BitBlast (3)_37
+      rect:
+        serializedVersion: 2
+        x: 1183
+        y: 946
+        width: 31
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bdc41af90d8f186c0800000000000000
+      internalID: -4142756607289111333
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BitBlast (3)_38
+      rect:
+        serializedVersion: 2
+        x: 1255
+        y: 947
+        width: 32
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 21a300932e7750550800000000000000
+      internalID: 6126434681610058258
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BitBlast (3)_39
+      rect:
+        serializedVersion: 2
+        x: 1291
+        y: 946
+        width: 31
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b925a281dde27bbb0800000000000000
+      internalID: -4920412540750900581
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BitBlast (3)_40
+      rect:
+        serializedVersion: 2
+        x: 1327
+        y: 937
+        width: 32
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6f2be3ae3f7a383a0800000000000000
+      internalID: -6664298357529333002
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BitBlast (3)_41
+      rect:
+        serializedVersion: 2
+        x: 1362
+        y: 947
+        width: 31
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 11643a7465aa315d0800000000000000
+      internalID: -3092941231527606767
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BitBlast (3)_42
+      rect:
+        serializedVersion: 2
+        x: 1398
+        y: 946
+        width: 32
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b71bd87bbc4c90350800000000000000
+      internalID: 5983529959175336315
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BitBlast (3)_43
+      rect:
+        serializedVersion: 2
+        x: 1471
+        y: 946
+        width: 31
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 532f51d144c2dec30800000000000000
+      internalID: 4390213882813477429
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BitBlast (3)_44
+      rect:
+        serializedVersion: 2
+        x: 1507
+        y: 947
+        width: 32
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dcb302f96918476e0800000000000000
+      internalID: -1840703863772922931
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      BitBlast (3)_0: 9083896256059181448
+      BitBlast (3)_1: -234299207879748173
+      BitBlast (3)_10: 1959471091467174021
+      BitBlast (3)_11: 1188060874503428023
+      BitBlast (3)_12: -7274946536040973848
+      BitBlast (3)_13: 8019386208967990556
+      BitBlast (3)_14: 7009350039762231254
+      BitBlast (3)_15: -2524500071052385732
+      BitBlast (3)_16: -5624849164019891264
+      BitBlast (3)_17: 4451542685857756331
+      BitBlast (3)_18: -1700401697042160802
+      BitBlast (3)_19: 5995017313170755988
+      BitBlast (3)_2: 3836105902932203526
+      BitBlast (3)_20: -8197163555375218631
+      BitBlast (3)_21: -5640149286013768617
+      BitBlast (3)_22: 4186610373822459752
+      BitBlast (3)_23: 4702652236430804160
+      BitBlast (3)_24: 4275352621452338171
+      BitBlast (3)_25: 7876679557544262828
+      BitBlast (3)_26: -8532177553266603373
+      BitBlast (3)_27: -4061398125612589406
+      BitBlast (3)_28: -4240784791718121864
+      BitBlast (3)_29: -2624616557287969574
+      BitBlast (3)_3: 5864032742679208673
+      BitBlast (3)_30: 7544474139893008354
+      BitBlast (3)_31: -3316467093128857249
+      BitBlast (3)_32: -6219738703314998704
+      BitBlast (3)_33: -589648345863209300
+      BitBlast (3)_34: -3068951313879378711
+      BitBlast (3)_35: -5617681181937582877
+      BitBlast (3)_36: -1453767275118826036
+      BitBlast (3)_37: -4142756607289111333
+      BitBlast (3)_38: 6126434681610058258
+      BitBlast (3)_39: -4920412540750900581
+      BitBlast (3)_4: -3554938520033322252
+      BitBlast (3)_40: -6664298357529333002
+      BitBlast (3)_41: -3092941231527606767
+      BitBlast (3)_42: 5983529959175336315
+      BitBlast (3)_43: 4390213882813477429
+      BitBlast (3)_44: -1840703863772922931
+      BitBlast (3)_5: 8999942866157935664
+      BitBlast (3)_6: -4941437521313615948
+      BitBlast (3)_7: 6923732178443445485
+      BitBlast (3)_8: -5946776034077196965
+      BitBlast (3)_9: 8819111933128878007
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

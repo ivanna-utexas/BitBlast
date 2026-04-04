@@ -873,8 +873,8 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 390743636}
   - {fileID: 659442958}
+  - {fileID: 390743636}
   - {fileID: 1236932570}
   - {fileID: 48939878}
   - {fileID: 1604013504}
@@ -1689,6 +1689,9 @@ MonoBehaviour:
   - {fileID: 1130285850}
   playArea: {fileID: 1236932570}
   scoreText: {fileID: 1604013505}
+  operationImage: {fileID: 790150857}
+  truthTableImage: {fileID: 211101187}
+  goalImage: {fileID: 991017564}
   bitOnColor: {r: 1, g: 1, b: 1, a: 0}
   bitOffColor: {r: 0.21960784, g: 0.4627451, b: 0.3372549, a: 0}
   bitSize: 100
@@ -1698,6 +1701,7 @@ MonoBehaviour:
   lockDelay: 0.15
   levelText: {fileID: 145792032}
   pointsPerBit: 100
+  pointsPerTouch: 25
   speedIncreasePerLevel: 20
   baseFallSpeed: 120
   fallingBitOn: {fileID: -4178046375966092550, guid: 4aa51a1b522b24f36aa1379ce95c2be8, type: 3}

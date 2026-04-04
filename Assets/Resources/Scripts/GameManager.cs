@@ -13,6 +13,10 @@ public class GameManager : MonoBehaviour
     public Image[] baseBits;               // bit0–bit7 Images on BaseRow
     public RectTransform playArea;          // PlayArea(Mask) RectTransform
     public TextMeshProUGUI scoreText;
+    public Image operationImage;   // the XOR banner image on the key
+     public Image truthTableImage;   // the XOR banner image on the key
+     public Image goalImage; 
+
  
     [Header("Colors")]
     public Color bitOnColor  = Color.white;
@@ -43,6 +47,12 @@ public Sprite baseBitOff;     // sprite for base row 0-bit
     private int _level = 1;
     private bool _debugOverride = false;
 
+
+
+    public enum BitOperation { XOR, AND, NAND }
+    private BitOperation _currentOperation;
+
+
  
     // ── internal state ──────────────────────────────────────────────
     private int[] _base     = new int[8];   // 8-bit base register
@@ -61,6 +71,7 @@ public Sprite baseBitOff;     // sprite for base row 0-bit
     private bool  _locking        = false;
  
     private int   _score = 0;
+    
  
     // ── Unity lifecycle ──────────────────────────────────────────────
  
@@ -78,6 +89,7 @@ void Start()
     {
         RandomiseBase();
         SpawnBlock();
+        PickRandomOperation();
         UpdateLevelText();
     }
 }
@@ -207,6 +219,38 @@ public int maxBlockBits = 4; // set to 4 in Inspector; range 1–4
         ApplyPosition();
     }
 
+    void PickRandomOperation()
+    {
+        _currentOperation = (BitOperation)Random.Range(0, 3);
+        UpdateOperationVisuals();
+    }
+
+    void UpdateOperationVisuals()
+{
+    if (operationImage != null)
+    {
+        Sprite spr = Resources.Load<Sprite>($"png/{_currentOperation}");
+        if (spr != null) operationImage.sprite = spr;
+    }
+
+    if (truthTableImage != null)
+    {
+        Sprite spr = Resources.Load<Sprite>($"png/{_currentOperation}tt");
+        if (spr != null) truthTableImage.sprite = spr;
+    }
+
+    if (goalImage != null)
+    {
+        string goalName = _currentOperation == BitOperation.AND ? "goalAND" : "goal";
+        Sprite spr = Resources.Load<Sprite>($"png/{goalName}");
+        if (spr != null) goalImage.sprite = spr;
+    }
+}
+
+
+
+
+
     // ── Input & movement ─────────────────────────────────────────────
  
 [Header("Snap Movement")]
@@ -295,27 +339,42 @@ private bool _snapQueued = false;
         yield return new WaitForSeconds(lockDelay);
 
         int startIndex = XPositionToBaseIndex(_blockX);
+int gained = 0, lost = 0, unchanged = 0;
+
+int activeSize = 0;
+foreach (var b in fallingBits) if (b.gameObject.activeSelf) activeSize++;
+
+for (int i = 0; i < activeSize; i++)  // ← activeSize not _falling.Length
+{
+    int baseIdx = startIndex + i;
+    if (baseIdx < 0 || baseIdx >= _base.Length) continue;
+
+    int a = _base[baseIdx];
+    int b = _falling[i];
+    int result;
+
+    switch (_currentOperation)
+    {
+        case BitOperation.XOR:  result = a ^ b;        break;
+        case BitOperation.AND:  result = a & b;        break;
+        case BitOperation.NAND: result = 1 - (a & b); break;
+        default:                result = a ^ b;        break;
+    }
+
+    if (result != a)
+    {
+        if (result == 1) gained++;
+        else             lost++;
+    }
+    else unchanged++;
+
+    _base[baseIdx] = result;
+}
 
 
-        int gained = 0, lost = 0;
+int delta = (gained * pointsPerBit) - (lost * pointsPerBit) + (unchanged * pointsPerTouch);
+_score = Mathf.Max(0, _score + delta);
 
-        for (int i = 0; i < _falling.Length; i++)
-        {
-            if (_falling[i] == 0) continue;
-
-            int baseIdx = startIndex + i;
-            if (baseIdx < 0 || baseIdx >= _base.Length) continue;
-
-            if (_base[baseIdx] == 0) gained++;
-            else                     lost++;
-
-            _base[baseIdx] ^= _falling[i];
-        }
-
-        int delta = (gained * (pointsPerBit + pointsPerTouch))
-                - (lost   * (pointsPerBit - pointsPerTouch));
-        Debug.Log($"Delta:    {string.Join("", delta)}");
-        _score = Mathf.Max(0, _score + delta);  // floor at 0
         UpdateScore();
 
         RefreshBaseVisuals();
@@ -350,11 +409,13 @@ private bool _snapQueued = false;
 
     bool CheckWin()
     {
+        int target = _currentOperation == BitOperation.AND ? 0 : 1;
         foreach (int b in _base)
-            if (b != 1) return false;
+            if (b != target) return false;
         return true;
-    }
- 
+    } 
+
+
     // ── Visuals ──────────────────────────────────────────────────────
  
     void RefreshFallingVisuals()
@@ -406,6 +467,7 @@ private bool _snapQueued = false;
         while (System.Array.TrueForAll(_base, b => b == 1));
 
         RefreshBaseVisuals();
+        PickRandomOperation();
 
         yield return new WaitForSeconds(0.5f);
 
