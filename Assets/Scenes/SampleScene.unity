@@ -3903,7 +3903,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: "Blocks of 1\u20134 bits fall from the top and apply a logic gate operation
     into your register on landing. Each block is labeled with its gate \u2014 XOR,
-    AND, or NAND.\n\nFlip all 8 bits to 1 for XOR and NAND and 0 for AND to clear
+    AND, or NAND.\n\nFlip all 8 bits to 1 for XOR and NAND, and 0 for AND to clear
     the board!\n\n+100 for flipping to the correct bit\n\u2212100 for flipping incorrectly\n+25
     for every bit untouched\n\nUse the Arrow Keys or Command Panel to position blocks.\n\nKnow
     your gates. Think ahead. Levels get faster the further you go!\n"
